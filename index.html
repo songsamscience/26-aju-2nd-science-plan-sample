@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>중학교 2학년 과학 1·2학기 평가계획</title>
+    <title>중학교 2학년 과학 1·2학기 통합 평가계획 (과학A/과학B)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
         /* CSS Reset & General Setup */
         * { box-sizing: border-box; }
         body {
-            background: linear-gradient(135deg, #e0e7ff, #f1f5f9);
+            background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
             min-height: 100vh;
             margin: 0;
             font-family: 'Noto Sans KR', sans-serif;
@@ -27,7 +27,7 @@
         /* Responsive Dashboard Container */
         .dashboard-container {
             width: 100%;
-            max-width: 1500px;
+            max-width: 1600px;
             height: 95vh;
             background-color: #ffffff;
             border-radius: 20px;
@@ -63,18 +63,19 @@
         .tab-btn {
             position: relative;
             padding: 16px 24px;
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 1.05rem;
+            font-weight: 600;
             color: #64748b;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .tab-btn:hover { color: #1d4ed8; }
+        .tab-btn:hover { color: #1e293b; background-color: #f8fafc; }
         .tab-btn.active {
-            color: #1e3a8a;
-            font-weight: 700;
+            color: #0f172a;
+            font-weight: 800;
+            background-color: #f8fafc;
         }
         .tab-btn::after {
             content: '';
@@ -82,19 +83,19 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background-color: #1e3a8a;
+            height: 4px;
+            background-color: #3b82f6;
             transform: scaleX(0);
             transition: transform 0.3s ease;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
         .tab-btn.active::after { transform: scaleX(1); }
         
         /* Section Cards */
         .section-card {
             background-color: #ffffff;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             border: 1px solid #e2e8f0;
             margin-bottom: 32px;
@@ -102,7 +103,7 @@
         }
         .section-header {
             background-color: #ffffff;
-            padding: 16px 24px;
+            padding: 20px 28px;
             border-bottom: 1px solid #e2e8f0;
             display: flex;
             align-items: center;
@@ -121,9 +122,13 @@
             animation: fadeIn 0.4s ease-out forwards;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Subject Badges */
+        .badge-A { background-color: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+        .badge-B { background-color: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
     </style>
 </head>
 <body>
@@ -131,28 +136,29 @@
 <div class="dashboard-container">
     
     <!-- Hero Header -->
-    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white pt-8 pb-6 px-10 shrink-0">
-        <div class="flex items-center gap-2 mb-3">
-            <span class="bg-blue-100/20 text-blue-50 text-xs font-bold px-2.5 py-1 rounded-full border border-blue-200/30 backdrop-blur-sm">2022 개정 교육과정</span>
-            <span class="bg-indigo-100/20 text-indigo-50 text-xs font-bold px-2.5 py-1 rounded-full border border-indigo-200/30 backdrop-blur-sm">과정중심평가</span>
+    <header class="bg-gradient-to-r from-slate-800 to-slate-900 text-white pt-8 pb-6 px-10 shrink-0">
+        <div class="flex items-center gap-3 mb-3">
+            <span class="bg-blue-500/20 text-blue-100 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">2022 개정 교육과정</span>
+            <span class="bg-emerald-500/20 text-emerald-100 text-xs font-bold px-3 py-1 rounded-full border border-emerald-400/30">과정중심평가</span>
+            <span class="bg-purple-500/20 text-purple-100 text-xs font-bold px-3 py-1 rounded-full border border-purple-400/30">아주중학교</span>
         </div>
         <h1 class="text-3xl font-black mb-2 tracking-tight flex items-center gap-3">
-            <i data-lucide="microscope" class="w-8 h-8 opacity-90"></i>
-            중학교 2학년 과학 교수·학습 평가계획
+            <i data-lucide="microscope" class="w-8 h-8 text-blue-400"></i>
+            중학교 2학년 과학 (과학A / 과학B) 교수·학습 평가계획
         </h1>
-        <p class="text-blue-100 text-sm font-light">1학기 및 2학기 통합 운영 계획서 대시보드</p>
+        <p class="text-slate-300 text-sm font-light">2026학년도 학사일정 반영 1학기 및 2학기 통합 대시보드</p>
     </header>
 
     <!-- Navigation Tab Bar -->
-    <div class="bg-white px-10 border-b border-gray-200 shrink-0 flex space-x-2">
+    <div class="bg-white px-8 border-b border-slate-200 shrink-0 flex space-x-1">
         <button onclick="switchTab('overview')" id="btn-overview" class="tab-btn active focus:outline-none">
-            <i data-lucide="layout-dashboard" class="w-4 h-4"></i> 과학 평가 개요
+            <i data-lucide="layout-dashboard" class="w-5 h-5"></i> 과학 평가 개요
         </button>
         <button onclick="switchTab('sem1')" id="btn-sem1" class="tab-btn focus:outline-none">
-            <i data-lucide="book-open" class="w-4 h-4"></i> 1학기 계획서
+            <i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i> 1학기 계획서
         </button>
         <button onclick="switchTab('sem2')" id="btn-sem2" class="tab-btn focus:outline-none">
-            <i data-lucide="flask-conical" class="w-4 h-4"></i> 2학기 계획서
+            <i data-lucide="flask-conical" class="w-5 h-5 text-emerald-600"></i> 2학기 계획서
         </button>
     </div>
 
@@ -166,22 +172,53 @@
             
             <!-- Quick Summary Boxes -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 shadow-sm flex flex-col justify-center">
-                    <h3 class="text-blue-800 font-extrabold mb-3 flex items-center gap-2 text-lg"><i data-lucide="book" class="w-5 h-5"></i> 1학기 핵심 단원</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-white border border-blue-200 text-blue-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-sm">물질의 특성</span>
-                        <span class="bg-white border border-blue-200 text-blue-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-sm">지권의 변화</span>
-                        <span class="bg-white border border-blue-200 text-blue-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-sm">빛과 파동</span>
-                        <span class="bg-blue-100 border border-blue-300 text-blue-900 text-sm font-bold px-3 py-1.5 rounded-full shadow-sm">식물과 에너지</span>
+                <!-- 과학 A -->
+                <div class="bg-white rounded-2xl p-6 border border-blue-100 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10"></div>
+                    <h3 class="text-blue-900 font-extrabold mb-4 flex items-center gap-2 text-xl">
+                        <i data-lucide="user" class="w-6 h-6 text-blue-600"></i> 과학A 선생님 담당 파트
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 block">1학기</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge-A text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">물질의 특성</span>
+                                <span class="badge-A text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">지권의 변화</span>
+                                <span class="badge-A text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">빛과 파동 (빛)</span>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 block">2학기</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge-A text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">물질의 구성</span>
+                                <span class="badge-A text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">전기와 자기</span>
+                                <span class="badge-A text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">별과 우주 (별)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-gradient-to-br from-indigo-50 to-white rounded-xl p-6 border border-indigo-100 shadow-sm flex flex-col justify-center">
-                    <h3 class="text-indigo-800 font-extrabold mb-3 flex items-center gap-2 text-lg"><i data-lucide="atom" class="w-5 h-5"></i> 2학기 핵심 단원</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-white border border-indigo-200 text-indigo-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-sm">물질의 구성</span>
-                        <span class="bg-white border border-indigo-200 text-indigo-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-sm">동물과 에너지</span>
-                        <span class="bg-white border border-indigo-200 text-indigo-800 text-sm font-semibold px-3 py-1.5 rounded-full shadow-sm">전기와 자기</span>
-                        <span class="bg-indigo-100 border border-indigo-300 text-indigo-900 text-sm font-bold px-3 py-1.5 rounded-full shadow-sm">별과 우주</span>
+
+                <!-- 과학 B -->
+                <div class="bg-white rounded-2xl p-6 border border-emerald-100 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full -z-10"></div>
+                    <h3 class="text-emerald-900 font-extrabold mb-4 flex items-center gap-2 text-xl">
+                        <i data-lucide="users" class="w-6 h-6 text-emerald-600"></i> 과학B 선생님 담당 파트
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 block">1학기</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge-B text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">식물과 에너지</span>
+                                <span class="badge-B text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">빛과 파동 (파동/빛)</span>
+                            </div>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 block">2학기</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge-B text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">동물과 에너지</span>
+                                <span class="badge-B text-sm font-semibold px-3 py-1.5 rounded-lg shadow-sm">별과 우주 (우주)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,88 +226,88 @@
             <!-- Overview Table -->
             <div class="section-card">
                 <div class="section-header">
-                    <div class="p-2 bg-purple-100 text-purple-700 rounded-lg"><i data-lucide="file-spreadsheet"></i></div>
-                    <h2 class="text-xl font-bold text-gray-800">2026학년도 과학 평가계획 총괄 개요</h2>
+                    <div class="p-2 bg-slate-100 text-slate-700 rounded-lg"><i data-lucide="file-spreadsheet"></i></div>
+                    <h2 class="text-xl font-bold text-slate-800">2026학년도 과학 평가계획 총괄 개요 (합산 반영)</h2>
                 </div>
                 <div class="table-wrapper">
                     <table class="w-full text-sm text-center border-collapse min-w-[1000px]">
-                        <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 shadow-sm">
+                        <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 shadow-sm">
                             <tr>
-                                <th scope="col" class="px-4 py-4 border-r border-gray-200 w-24 bg-gray-50" rowspan="2">과목</th>
-                                <th scope="col" class="px-4 py-4 border-r border-gray-200 w-24 bg-gray-50" rowspan="2">평가 영역</th>
-                                <th scope="col" class="px-4 py-3 border-r border-gray-200 bg-blue-50/50 text-blue-800" colspan="4">1학기 (평가 반영비율)</th>
-                                <th scope="col" class="px-4 py-3 bg-indigo-50/50 text-indigo-800" colspan="4">2학기 (평가 반영비율)</th>
+                                <th scope="col" class="px-4 py-4 border-r border-slate-200 w-24 bg-slate-100" rowspan="2">과목</th>
+                                <th scope="col" class="px-4 py-4 border-r border-slate-200 w-24 bg-slate-100" rowspan="2">평가 영역</th>
+                                <th scope="col" class="px-4 py-3 border-r border-slate-200 bg-blue-50/80 text-blue-900" colspan="4">1학기 (평가 반영비율)</th>
+                                <th scope="col" class="px-4 py-3 bg-emerald-50/80 text-emerald-900" colspan="4">2학기 (평가 반영비율)</th>
                             </tr>
-                            <tr class="border-t border-gray-200">
-                                <th scope="col" class="px-2 py-3 border-r border-gray-200 bg-blue-50/50 text-blue-800">고사/영역명</th>
-                                <th scope="col" class="px-2 py-3 border-r border-gray-200 bg-blue-50/50 text-blue-800">반영(%)</th>
-                                <th scope="col" class="px-2 py-3 border-r border-gray-200 bg-blue-50/50 text-blue-800">만점</th>
-                                <th scope="col" class="px-2 py-3 border-r border-gray-200 bg-blue-50/50 text-blue-800">평가 시기</th>
-                                <th scope="col" class="px-2 py-3 border-r border-gray-200 bg-indigo-50/50 text-indigo-800">고사/영역명</th>
-                                <th scope="col" class="px-2 py-3 border-r border-gray-200 bg-indigo-50/50 text-indigo-800">반영(%)</th>
-                                <th scope="col" class="px-2 py-3 border-r border-gray-200 bg-indigo-50/50 text-indigo-800">만점</th>
-                                <th scope="col" class="px-2 py-3 bg-indigo-50/50 text-indigo-800">평가 시기</th>
+                            <tr class="border-t border-slate-200">
+                                <th scope="col" class="px-2 py-3 border-r border-slate-200 bg-blue-50/50 text-blue-800">고사/영역명</th>
+                                <th scope="col" class="px-2 py-3 border-r border-slate-200 bg-blue-50/50 text-blue-800">반영(%)</th>
+                                <th scope="col" class="px-2 py-3 border-r border-slate-200 bg-blue-50/50 text-blue-800">만점</th>
+                                <th scope="col" class="px-2 py-3 border-r border-slate-200 bg-blue-50/50 text-blue-800">평가 시기</th>
+                                <th scope="col" class="px-2 py-3 border-r border-slate-200 bg-emerald-50/50 text-emerald-800">고사/영역명</th>
+                                <th scope="col" class="px-2 py-3 border-r border-slate-200 bg-emerald-50/50 text-emerald-800">반영(%)</th>
+                                <th scope="col" class="px-2 py-3 border-r border-slate-200 bg-emerald-50/50 text-emerald-800">만점</th>
+                                <th scope="col" class="px-2 py-3 bg-emerald-50/50 text-emerald-800">평가 시기</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-4 py-4 font-black text-xl text-gray-800 border-r border-gray-200" rowspan="5">과학</td>
-                                <td class="px-4 py-4 font-bold text-gray-700 border-r border-gray-200 bg-gray-50" rowspan="2">정기<br>(60%)</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-medium">중간고사</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-gray-800">30%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-medium text-blue-700">4.29. - 4.30.</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-medium">중간고사</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-gray-800">30%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
-                                <td class="px-4 py-4 font-medium text-indigo-700">9.30. - 10.1.</td>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-4 py-4 font-black text-xl text-slate-800 border-r border-slate-200" rowspan="5">과학<br><span class="text-xs font-normal text-slate-500">(A/B 합산)</span></td>
+                                <td class="px-4 py-4 font-bold text-slate-700 border-r border-slate-200 bg-slate-50" rowspan="2">정기<br>(60%)</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">중간고사</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-slate-800">30%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium text-blue-700">4.29. - 4.30.</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">중간고사</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-slate-800">30%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
+                                <td class="px-4 py-4 font-medium text-emerald-700">9.30. - 10.1.</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-4 py-4 border-r border-gray-200 font-medium">기말고사</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-gray-800">30%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-medium text-blue-700">6.29. - 7.1.</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-medium">기말고사</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-gray-800">30%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
-                                <td class="px-4 py-4 font-medium text-indigo-700">12.7. - 12.9.</td>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">기말고사</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-slate-800">30%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium text-blue-700">6.29. - 7.1.</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">기말고사</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-slate-800">30%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
+                                <td class="px-4 py-4 font-medium text-emerald-700">12.7. - 12.9.</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors border-t-2 border-gray-200">
-                                <td class="px-4 py-4 font-bold text-blue-800 border-r border-gray-200 bg-blue-50/30" rowspan="3">수행<br>(40%)</td>
-                                <td class="px-4 py-4 border-r border-gray-200">실험/실습 평가</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-blue-600">10%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
-                                <td class="px-4 py-4 border-r border-gray-200">4월 2주</td>
-                                <td class="px-4 py-4 border-r border-gray-200">실험/실습 평가</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-indigo-600">10%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
+                            <tr class="hover:bg-slate-50 transition-colors border-t-2 border-slate-200">
+                                <td class="px-4 py-4 font-bold text-purple-800 border-r border-slate-200 bg-purple-50/30" rowspan="3">수행<br>(40%)</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">실험/실습 평가</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-purple-600">10%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
+                                <td class="px-4 py-4 border-r border-slate-200">4월 2주</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">실험/실습 평가</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-purple-600">10%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
                                 <td class="px-4 py-4">9월 2주</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-4 py-4 border-r border-gray-200">서논술형/프로젝트 A</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-blue-600">15%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
-                                <td class="px-4 py-4 border-r border-gray-200">5월 4주</td>
-                                <td class="px-4 py-4 border-r border-gray-200">서논술형/프로젝트 A</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-indigo-600">15%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">서논술형/프로젝트 A</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-purple-600">15%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
+                                <td class="px-4 py-4 border-r border-slate-200">5월 4주</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">서논술형/프로젝트 A</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-purple-600">15%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
                                 <td class="px-4 py-4">10월 4주</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="px-4 py-4 border-r border-gray-200">서논술형/프로젝트 B</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-blue-600">15%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
-                                <td class="px-4 py-4 border-r border-gray-200">6월 4주</td>
-                                <td class="px-4 py-4 border-r border-gray-200">서논술형/프로젝트 B</td>
-                                <td class="px-4 py-4 border-r border-gray-200 font-bold text-lg text-indigo-600">15%</td>
-                                <td class="px-4 py-4 border-r border-gray-200 text-gray-500">100</td>
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">서논술형/프로젝트 B</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-purple-600">15%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
+                                <td class="px-4 py-4 border-r border-slate-200">6월 3주</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-medium">서논술형/프로젝트 B</td>
+                                <td class="px-4 py-4 border-r border-slate-200 font-bold text-lg text-purple-600">15%</td>
+                                <td class="px-4 py-4 border-r border-slate-200 text-slate-500">100</td>
                                 <td class="px-4 py-4">11월 4주</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="px-6 py-4 bg-gray-50 text-xs text-gray-500 text-right">
-                    ※ 2026학년도 아주중학교 학사 일정표를 반영하여 작성되었습니다. (평가 기간은 변동될 수 있음)
+                <div class="px-6 py-4 bg-slate-50 text-xs text-slate-500 text-right">
+                    ※ 2026학년도 학사일정을 반영하여 작성되었으며, 세부 일정은 학사 운영에 따라 변동될 수 있습니다.
                 </div>
             </div>
         </div>
@@ -283,91 +320,184 @@
             <div class="section-card">
                 <div class="section-header">
                     <div class="p-2 bg-blue-100 text-blue-700 rounded-lg"><i data-lucide="calendar"></i></div>
-                    <h2 class="text-xl font-bold text-gray-800">1학기 교수·학습 운영 계획</h2>
+                    <h2 class="text-xl font-bold text-slate-800">1학기 교수·학습 운영 계획</h2>
                 </div>
                 <div class="table-wrapper">
                     <table class="w-full text-sm text-left whitespace-nowrap md:whitespace-normal min-w-[1000px]">
-                        <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 shadow-sm">
+                        <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 shadow-sm">
                             <tr>
                                 <th scope="col" class="px-4 py-4 w-20 text-center">시기</th>
-                                <th scope="col" class="px-4 py-4 w-36">주제/단원명</th>
+                                <th scope="col" class="px-4 py-4 w-40 text-center">담당 / 단원명</th>
                                 <th scope="col" class="px-4 py-4 min-w-[250px]">핵심 아이디어 및 성취기준</th>
                                 <th scope="col" class="px-4 py-4 min-w-[220px]">교수·학습 내용(수업방법)</th>
                                 <th scope="col" class="px-4 py-4 min-w-[200px]">평가 및 피드백 방법</th>
                                 <th scope="col" class="px-4 py-4 w-36">비고(범교과)</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-blue-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">3~4월</td>
-                                <td class="px-4 py-4 font-bold text-blue-900">물질의 특성</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-blue-100 text-blue-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1.5">[지식·이해]</span> 물질의 고유한 특성(밀도, 용해도) 이해<br>
-                                    <span class="inline-block bg-purple-100 text-purple-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 특성 차이를 이용한 혼합물 분리 실험 설계
-                                </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
-                                    • 밀도 가상실험 및 실제 측정 병행<br>
-                                    • 혼합물 분리 장치 고안 프로젝트
+                        <tbody class="divide-y divide-slate-200">
+                            <!-- March -->
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-4 py-4 text-center font-bold text-slate-700" rowspan="2">3월</td>
+                                <td class="px-4 py-4">
+                                    <div class="badge-A text-xs px-2 py-1 rounded inline-block mb-1">과학A</div><br>
+                                    <span class="font-bold text-slate-800">물질의 특성</span>
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-blue-700 bg-blue-50 px-1 py-0.5 rounded">[수행 1]</span> 혼합물 분리 실험/실습 평가<br>
-                                    • 오차 원인 실시간 피드백
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[지식·이해]</span> 물질의 고유한 특성(밀도, 용해도 등) 파악
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 leading-relaxed">
-                                    <span class="font-bold text-red-600">[안전]</span> 기구 사용법<br><span class="font-bold text-green-600">[생태]</span> 폐수 처리
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 순물질과 혼합물 모둠 토의<br>
+                                    • 밀도 가상실험 및 실제 측정
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-purple-700 bg-purple-50 px-2 py-1 rounded">[수행 1]</span> 밀도 측정 실험/실습<br>
+                                    • 오차 원인 실시간 순회 피드백
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-red-600">[안전]</span> 과학실 수칙
                                 </td>
                             </tr>
-                            <tr class="hover:bg-blue-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">4~5월</td>
-                                <td class="px-4 py-4 font-bold text-blue-900">지권의 변화</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-blue-100 text-blue-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1.5">[지식·이해]</span> 지구 내부 구조 및 판구조론 설명<br>
-                                    <span class="inline-block bg-pink-100 text-pink-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[가치·태도]</span> 지각 변동이 인류 생활에 미치는 영향 인식
+                            <tr class="hover:bg-slate-50 transition-colors border-t border-dashed border-slate-200">
+                                <td class="px-4 py-4">
+                                    <div class="badge-B text-xs px-2 py-1 rounded inline-block mb-1">과학B</div><br>
+                                    <span class="font-bold text-slate-800">식물과 에너지</span>
                                 </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 광합성 작용 및 호흡 과정 실험 설계
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 현미경 활용 기공/엽록소 관찰<br>
+                                    • 식물 세포 호흡 모식도 제작
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-slate-600">[형성평가]</span> 관찰 일지 피드백
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-emerald-600">[생태]</span> 숲의 역할
+                                </td>
+                            </tr>
+
+                            <!-- April -->
+                            <tr class="hover:bg-slate-50 transition-colors border-t-2 border-slate-200">
+                                <td class="px-4 py-4 text-center font-bold text-slate-700" rowspan="2">4월</td>
+                                <td class="px-4 py-4">
+                                    <div class="badge-A text-xs px-2 py-1 rounded inline-block mb-1">과학A</div><br>
+                                    <span class="font-bold text-slate-800">지권의 변화</span>
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[지식·이해]</span> 지구 내부 구조 및 판구조론 설명
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
                                     • 지진파 시뮬레이션 데이터 해석<br>
-                                    • AI 도구 활용 내진 설계 아이디어 토의
+                                    • 중간고사 대비 총정리 (4.29-30)
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-gray-700 bg-gray-100 px-1 py-0.5 rounded">중간고사</span> 지필평가 (30%)<br>
-                                    <span class="font-bold text-blue-700 bg-blue-50 px-1 py-0.5 rounded">[수행 2]</span> 내진 설계 제안 (서논술A)
+                                    <span class="font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded">중간고사</span> 지필평가 (30%)
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 leading-relaxed">
-                                    <span class="font-bold text-red-600">[안전]</span> 지진 대피 요령
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-red-600">[안전]</span> 지진 대피
                                 </td>
                             </tr>
-                            <tr class="hover:bg-blue-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">6월</td>
-                                <td class="px-4 py-4 font-bold text-blue-900">빛과 파동</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-purple-100 text-purple-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 소리의 3요소를 분석하고 파동 굴절 관찰
-                                </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
-                                    • 레이저 포인터 빛 경로 탐구<br>
-                                    • 소리 센서 앱 활용 파형 분석
+                            <tr class="hover:bg-slate-50 transition-colors border-t border-dashed border-slate-200">
+                                <td class="px-4 py-4">
+                                    <div class="badge-B text-xs px-2 py-1 rounded inline-block mb-1">과학B</div><br>
+                                    <span class="font-bold text-slate-800">빛과 파동 (파동)</span>
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-gray-600">[과정평가]</span> 빛 작도 및 분석 결과 교정
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 파동의 종류 분류 및 소리의 3요소 탐구
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 text-center text-gray-400">-</td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 소리 센서 앱 활용 파형 분석<br>
+                                    • 중간고사 대비 총정리 (4.29-30)
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded">중간고사</span> 지필평가 (30%)
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    -
+                                </td>
                             </tr>
-                            <tr class="hover:bg-blue-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">6~7월</td>
-                                <td class="px-4 py-4 font-bold text-blue-900">식물과 에너지</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-purple-100 text-purple-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1.5">[과정·기능]</span> 광합성 환경 요인 가상실험 탐구<br>
-                                    <span class="inline-block bg-pink-100 text-pink-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[가치·태도]</span> 식물의 역할과 생태계 보전 의식 함양
+
+                            <!-- May -->
+                            <tr class="hover:bg-slate-50 transition-colors border-t-2 border-slate-200">
+                                <td class="px-4 py-4 text-center font-bold text-slate-700" rowspan="2">5월</td>
+                                <td class="px-4 py-4">
+                                    <div class="badge-A text-xs px-2 py-1 rounded inline-block mb-1">과학A</div><br>
+                                    <span class="font-bold text-slate-800">지권의 변화</span>
                                 </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[가치·태도]</span> 지각 변동의 영향 인식 및 대처 방안 모색
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • AI 도구 활용 내진 설계 아이디어 토의<br>
+                                    • 세계 주요 지진대 조사
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-purple-700 bg-purple-50 px-2 py-1 rounded">[수행 2]</span> 내진 설계 제안 (서논술A)
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-red-600">[안전]</span> 구조물 안전
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors border-t border-dashed border-slate-200">
+                                <td class="px-4 py-4">
+                                    <div class="badge-B text-xs px-2 py-1 rounded inline-block mb-1">과학B</div><br>
+                                    <span class="font-bold text-slate-800">빛과 파동 (빛)</span>
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[지식·이해]</span> 빛의 합성 원리를 일상생활 예시와 연관
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 조명 앱 활용 빛 합성 시뮬레이션<br>
+                                    • 무대 조명 설계 에듀테크 실습
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-slate-600">[과정평가]</span> 모둠 발표 및 동료 평가
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    -
+                                </td>
+                            </tr>
+
+                            <!-- June/July -->
+                            <tr class="hover:bg-slate-50 transition-colors border-t-2 border-slate-200">
+                                <td class="px-4 py-4 text-center font-bold text-slate-700" rowspan="2">6~7월</td>
+                                <td class="px-4 py-4">
+                                    <div class="badge-A text-xs px-2 py-1 rounded inline-block mb-1">과학A</div><br>
+                                    <span class="font-bold text-slate-800">빛과 파동 (빛)</span>
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 빛의 반사와 굴절 경로 탐구 작도
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 레이저 포인터 렌즈 작도 실험<br>
+                                    • 기말고사 실시 (6.29 - 7.1)
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded">기말고사</span> 지필평가 (30%)
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    -
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors border-t border-dashed border-slate-200">
+                                <td class="px-4 py-4">
+                                    <div class="badge-B text-xs px-2 py-1 rounded inline-block mb-1">과학B</div><br>
+                                    <span class="font-bold text-slate-800">식물과 에너지</span>
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[가치·태도]</span> 식물의 광합성이 환경에 미치는 영향 논술
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
                                     • 광합성 환경 요인 가상실험 (Virtual Lab)<br>
-                                    • 기후 변화와 식물 생장 토의
+                                    • 기말고사 실시 (6.29 - 7.1)
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-blue-700 bg-blue-50 px-1 py-0.5 rounded">[수행 3]</span> 광합성 데이터 논술 (서논술B)<br>
-                                    <span class="font-bold text-gray-700 bg-gray-100 px-1 py-0.5 rounded">기말고사</span> 지필평가 (30%)
+                                    <span class="font-bold text-purple-700 bg-purple-50 px-2 py-1 rounded">[수행 3]</span> 광합성 데이터 분석 (서논술B)<br>
+                                    <span class="font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded">기말고사</span> 지필평가 (30%)
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 leading-relaxed">
-                                    <span class="font-bold text-green-600">[생태]</span> 기후 위기와 식물 생태
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-emerald-600">[생태]</span> 기후 위기
                                 </td>
                             </tr>
                         </tbody>
@@ -379,41 +509,41 @@
             <div class="section-card">
                 <div class="section-header">
                     <div class="p-2 bg-orange-100 text-orange-700 rounded-lg"><i data-lucide="clipboard-check"></i></div>
-                    <h2 class="text-xl font-bold text-gray-800">1학기 수행평가 세부 계획 및 루브릭 (총 40%)</h2>
+                    <h2 class="text-xl font-bold text-slate-800">1학기 수행평가 세부 계획 및 루브릭 (A/B 통합 총 40%)</h2>
                 </div>
                 <div class="p-8 space-y-12">
                     
                     <!-- Task 1 -->
                     <div>
-                        <h3 class="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2"><div class="w-2 h-6 bg-blue-600 rounded-full"></div> [과제 1] 실험/실습 평가: "밀도 측정 및 물질 구별하기" <span class="text-blue-600 ml-2">(10%)</span></h3>
-                        <div class="table-wrapper border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><div class="badge-A text-xs px-2 py-1 rounded">과학A</div> [과제 1] 실험/실습 평가: "밀도 측정 및 물질 구별하기" <span class="text-purple-600 ml-2">(10%)</span></h3>
+                        <div class="table-wrapper border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                             <table class="w-full text-sm text-left min-w-[800px]">
-                                <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 text-center">
+                                <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 text-center">
                                     <tr>
-                                        <th scope="col" class="px-4 py-3 w-28 border-r border-gray-200">채점 요소</th>
+                                        <th scope="col" class="px-4 py-3 w-28 border-r border-slate-200">채점 요소</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">탁월 (A)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">우수 (B)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">보통 (C)</th>
-                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-gray-200">초보 (D/E)</th>
+                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-slate-200">초보 (D/E)</th>
                                         <th scope="col" class="px-2 py-3 w-16">배점</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">지식/결과</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">질량, 부피를 바탕으로 밀도를 정확히 계산하고 오차 원인을 과학적 근거로 명확히 설명함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">밀도를 정확히 계산하고 오차 원인을 제시하였으나 논리적 근거가 다소 부족함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">교사의 도움을 받아 밀도를 계산하며 오차의 존재를 인식함. (기본점수 부여)</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">밀도 계산에 어려움이 있으나 주어진 양식 채우기에 성실히 참여함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">40</td>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">지식/결과</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">질량, 부피를 바탕으로 밀도를 정확히 계산하고 오차 원인을 과학적 근거로 명확히 설명함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">밀도를 정확히 계산하고 오차 원인을 제시하였으나 논리적 근거가 다소 부족함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">교사의 도움을 받아 밀도를 계산하며 오차의 존재를 인식함. (기본점수 부여)</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">밀도 계산에 어려움이 있으나 주어진 양식 채우기에 성실히 참여함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">40</td>
                                     </tr>
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">과정/태도</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">실험 기구를 능숙하게 다루고 가상실험과 교차 비교하며 안전 수칙을 완벽히 준수함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">실험 기구를 바르게 조작하며 실험 전 과정에 성실히 참여하고 안전 수칙을 준수함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">기구 조작에 일부 미숙함이 있으나 안내에 따라 실험을 끝까지 수행함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">기구 조작에 소극적이며 안전 수칙 준수를 위해 지속적 지도가 필요함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">60</td>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">과정/태도</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">실험 기구를 능숙하게 다루고 가상실험과 교차 비교하며 안전 수칙을 완벽히 준수함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">실험 기구를 바르게 조작하며 실험 전 과정에 성실히 참여하고 안전 수칙을 준수함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">기구 조작에 일부 미숙함이 있으나 안내에 따라 실험을 끝까지 수행함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">기구 조작에 소극적이며 안전 수칙 준수를 위해 지속적 지도가 필요함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">60</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -422,35 +552,35 @@
 
                     <!-- Task 2 -->
                     <div>
-                        <h3 class="text-lg font-bold text-indigo-900 mb-4 flex items-center gap-2"><div class="w-2 h-6 bg-indigo-600 rounded-full"></div> [과제 2] 서논술형/프로젝트 A: "AI 활용 지진 피해 최소화 설계" <span class="text-indigo-600 ml-2">(15%)</span></h3>
-                        <div class="table-wrapper border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><div class="badge-A text-xs px-2 py-1 rounded">과학A</div> [과제 2] 서논술형/프로젝트 A: "AI 활용 지진 피해 최소화 설계" <span class="text-purple-600 ml-2">(15%)</span></h3>
+                        <div class="table-wrapper border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                             <table class="w-full text-sm text-left min-w-[800px]">
-                                <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 text-center">
+                                <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 text-center">
                                     <tr>
-                                        <th scope="col" class="px-4 py-3 w-28 border-r border-gray-200">채점 요소</th>
+                                        <th scope="col" class="px-4 py-3 w-28 border-r border-slate-200">채점 요소</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">탁월 (A)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">우수 (B)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">보통 (C)</th>
-                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-gray-200">초보 (D/E)</th>
+                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-slate-200">초보 (D/E)</th>
                                         <th scope="col" class="px-2 py-3 w-16">배점</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">내용/논술</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">지진파의 특성을 분석하여 이를 상쇄할 창의적이고 과학적인 내진 설계 방안을 논리적으로 서술함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">지진파의 특성을 반영한 방안을 서술했으나, 과학적 원리 적용이나 논리적 전개가 일부 미흡함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">지진 및 내진 설계의 기본 개념은 포함되었으나, 서술된 내용이 단순하거나 연결이 부족함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">지진 개념만 단편적으로 나열하였으며, 문장 완성을 위해 교사의 조력이 필요함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">60</td>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">내용/논술</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">지진파의 특성을 분석하여 이를 상쇄할 창의적이고 과학적인 내진 설계 방안을 논리적으로 서술함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">지진파의 특성을 반영한 방안을 서술했으나, 과학적 원리 적용이나 논리적 전개가 일부 미흡함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">지진 및 내진 설계의 기본 개념은 포함되었으나, 서술된 내용이 단순하거나 연결이 부족함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">지진 개념만 단편적으로 나열하였으며, 문장 완성을 위해 교사의 조력이 필요함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">60</td>
                                     </tr>
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">과정/윤리</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">구체적인 AI 프롬프트를 작성하여 답변을 도출하고, 교차 검증을 통해 출처를 정확히 표기함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">목적에 맞는 프롬프트를 작성하여 정보를 수집하고, 출처 표기 규칙을 대체로 준수함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">단순 키워드 위주의 검색을 사용하였으며 출처 표기에 일부 누락이 있음.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">AI 검색 결과 활용에 어려움을 겪고, 무비판적으로 정보를 수용하거나 출처를 누락함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">40</td>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">과정/윤리</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">구체적인 AI 프롬프트를 작성하여 답변을 도출하고, 교차 검증을 통해 출처를 정확히 표기함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">목적에 맞는 프롬프트를 작성하여 정보를 수집하고, 출처 표기 규칙을 대체로 준수함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">단순 키워드 위주의 검색을 사용하였으며 출처 표기에 일부 누락이 있음.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">AI 검색 결과 활용에 어려움을 겪고, 무비판적으로 정보를 수용하거나 출처를 누락함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">40</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -459,35 +589,35 @@
 
                     <!-- Task 3 -->
                     <div>
-                        <h3 class="text-lg font-bold text-teal-900 mb-4 flex items-center gap-2"><div class="w-2 h-6 bg-teal-600 rounded-full"></div> [과제 3] 서논술형/프로젝트 B: "에듀테크 활용 광합성 데이터 분석" <span class="text-teal-600 ml-2">(15%)</span></h3>
-                        <div class="table-wrapper border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><div class="badge-B text-xs px-2 py-1 rounded">과학B</div> [과제 3] 서논술형/프로젝트 B: "에듀테크 활용 광합성 데이터 분석" <span class="text-purple-600 ml-2">(15%)</span></h3>
+                        <div class="table-wrapper border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                             <table class="w-full text-sm text-left min-w-[800px]">
-                                <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 text-center">
+                                <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 text-center">
                                     <tr>
-                                        <th scope="col" class="px-4 py-3 w-28 border-r border-gray-200">채점 요소</th>
+                                        <th scope="col" class="px-4 py-3 w-28 border-r border-slate-200">채점 요소</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">탁월 (A)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">우수 (B)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">보통 (C)</th>
-                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-gray-200">초보 (D/E)</th>
+                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-slate-200">초보 (D/E)</th>
                                         <th scope="col" class="px-2 py-3 w-16">배점</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">지식/논술</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">광합성 영향 요인을 그래프 데이터와 정확히 연관 짓고, 기후 변화가 생태계에 미칠 영향을 논리적으로 서술함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">그래프를 활용해 요인을 설명했으나, 기후 변화와 생태계를 연관 짓는 논리적 전개가 일부 미흡함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">광합성 영향 요인 개념은 있으나, 가상실험 그래프 해석 및 적용에 오류가 있음.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">단어만을 단편적으로 나열하여, 인과관계 파악 및 문장 작성을 위해 교사 조력이 필요함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">60</td>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">지식/논술</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">광합성 영향 요인을 그래프 데이터와 정확히 연관 짓고, 기후 변화가 생태계에 미칠 영향을 논리적으로 서술함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">그래프를 활용해 요인을 설명했으나, 기후 변화와 생태계를 연관 짓는 논리적 전개가 일부 미흡함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">광합성 영향 요인 개념은 있으나, 가상실험 그래프 해석 및 적용에 오류가 있음.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">단어만을 단편적으로 나열하여, 인과관계 파악 및 문장 작성을 위해 교사 조력이 필요함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">60</td>
                                     </tr>
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">과정/탐구</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">가상실험의 변인을 정확히 통제하여 데이터를 수집하고 이를 시각적 그래프로 오류 없이 변환함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">변인을 대체로 통제하여 데이터를 수집하였으나 그래프 변환 과정에서 사소한 오류가 있음.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">안내된 절차에 따라 실험을 수행하였으나 수집한 데이터를 그래프로 변환하는 데 어려움이 있음.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">가상실험 조작에 소극적이며 탐구 수행을 위해 교사의 지속적 지시와 격려가 필요함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">40</td>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">과정/탐구</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">가상실험의 변인을 정확히 통제하여 데이터를 수집하고 이를 시각적 그래프로 오류 없이 변환함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">변인을 대체로 통제하여 데이터를 수집하였으나 그래프 변환 과정에서 사소한 오류가 있음.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">안내된 절차에 따라 실험을 수행하였으나 수집한 데이터를 그래프로 변환하는 데 어려움이 있음.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">가상실험 조작에 소극적이며 탐구 수행을 위해 교사의 지속적 지시와 격려가 필요함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">40</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -504,92 +634,143 @@
             <!-- 2학기 운영 계획 -->
             <div class="section-card">
                 <div class="section-header">
-                    <div class="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><i data-lucide="calendar"></i></div>
-                    <h2 class="text-xl font-bold text-gray-800">2학기 교수·학습 운영 계획</h2>
+                    <div class="p-2 bg-emerald-100 text-emerald-700 rounded-lg"><i data-lucide="calendar"></i></div>
+                    <h2 class="text-xl font-bold text-slate-800">2학기 교수·학습 운영 계획</h2>
                 </div>
                 <div class="table-wrapper">
                     <table class="w-full text-sm text-left whitespace-nowrap md:whitespace-normal min-w-[1000px]">
-                        <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 shadow-sm">
+                        <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 shadow-sm">
                             <tr>
                                 <th scope="col" class="px-4 py-4 w-20 text-center">시기</th>
-                                <th scope="col" class="px-4 py-4 w-36">주제/단원명</th>
+                                <th scope="col" class="px-4 py-4 w-40 text-center">담당 / 단원명</th>
                                 <th scope="col" class="px-4 py-4 min-w-[250px]">핵심 아이디어 및 성취기준</th>
                                 <th scope="col" class="px-4 py-4 min-w-[220px]">교수·학습 내용(수업방법)</th>
                                 <th scope="col" class="px-4 py-4 min-w-[200px]">평가 및 피드백 방법</th>
                                 <th scope="col" class="px-4 py-4 w-36">비고(범교과)</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-indigo-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">8~9월</td>
-                                <td class="px-4 py-4 font-bold text-indigo-900">물질의 구성</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-blue-100 text-blue-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1.5">[지식·이해]</span> 원소, 원자와 분자, 이온의 개념 파악<br>
-                                    <span class="inline-block bg-purple-100 text-purple-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 주기율표와 이온 형성 규칙 탐구
+                        <tbody class="divide-y divide-slate-200">
+                            <!-- August/September -->
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-4 py-4 text-center font-bold text-slate-700" rowspan="2">8~9월</td>
+                                <td class="px-4 py-4">
+                                    <div class="badge-A text-xs px-2 py-1 rounded inline-block mb-1">과학A</div><br>
+                                    <span class="font-bold text-slate-800">물질의 구성</span>
                                 </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[지식·이해]</span> 원소, 원자와 분자, 이온의 개념 파악
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
                                     • 원자 모형 만들기 (에듀테크 3D 모델링)<br>
-                                    • 주기율표 규칙 분석 토의
+                                    • 앙금 생성 반응 가상/실제 실험
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-indigo-700 bg-indigo-50 px-1 py-0.5 rounded">[수행 2]</span> 이온 탐구 보고서 (서논술A)
+                                    <span class="font-bold text-purple-700 bg-purple-50 px-2 py-1 rounded">[수행 1]</span> 앙금 생성 이온 실험 (10%)
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 leading-relaxed">
-                                    <span class="font-bold text-blue-600">[디지털소양]</span> 3D 모델링
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-blue-600">[디지털]</span> 3D 활용
                                 </td>
                             </tr>
-                            <tr class="hover:bg-indigo-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">9~10월</td>
-                                <td class="px-4 py-4 font-bold text-indigo-900">동물과 에너지</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-purple-100 text-purple-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 소화, 순환, 호흡, 배설계 기능 실험 탐구
+                            <tr class="hover:bg-slate-50 transition-colors border-t border-dashed border-slate-200">
+                                <td class="px-4 py-4">
+                                    <div class="badge-B text-xs px-2 py-1 rounded inline-block mb-1">과학B</div><br>
+                                    <span class="font-bold text-slate-800">동물과 에너지</span>
                                 </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 소화계통 및 영양소 검출 과정 탐구
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
                                     • 침의 소화 작용 및 영양소 검출 실험<br>
-                                    • 사람의 기관계 통합 작용 모식도 제작
+                                    • 중간고사 대비 총정리 (9.30-10.1)
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-indigo-700 bg-indigo-50 px-1 py-0.5 rounded">[수행 1]</span> 영양소 검출 실험/실습 평가<br>
-                                    <span class="font-bold text-gray-700 bg-gray-100 px-1 py-0.5 rounded">중간고사</span> 지필평가 (30%)
+                                    <span class="font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded">중간고사</span> 지필평가 (30%)
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 leading-relaxed">
-                                    <span class="font-bold text-red-600">[안전]</span> 시약 안전 취급
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-red-600">[안전]</span> 시약 취급
                                 </td>
                             </tr>
-                            <tr class="hover:bg-indigo-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">10~11월</td>
-                                <td class="px-4 py-4 font-bold text-indigo-900">전기와 자기</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-blue-100 text-blue-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1.5">[지식·이해]</span> 옴의 법칙, 전자기력 원리 이해<br>
-                                    <span class="inline-block bg-pink-100 text-pink-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[가치·태도]</span> 일상생활 적용 사례의 유용성 인식
-                                </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
-                                    • 회로 시뮬레이터(PhET) 활용 탐구<br>
-                                    • 전동기 원리 및 자기장 관찰 실험
+
+                            <!-- October -->
+                            <tr class="hover:bg-slate-50 transition-colors border-t-2 border-slate-200">
+                                <td class="px-4 py-4 text-center font-bold text-slate-700" rowspan="2">10월</td>
+                                <td class="px-4 py-4">
+                                    <div class="badge-A text-xs px-2 py-1 rounded inline-block mb-1">과학A</div><br>
+                                    <span class="font-bold text-slate-800">전기와 자기</span>
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-gray-600">[과정평가]</span> 회로도 작성 오류 피드백
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[지식·이해]</span> 옴의 법칙, 전자기력 원리 이해
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 leading-relaxed">
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 회로 시뮬레이터(PhET) 활용 옴의 법칙 탐구<br>
+                                    • 전자기력 응용 장치 조사
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-slate-600">[과정평가]</span> 회로도 작성 피드백
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
                                     <span class="font-bold text-red-600">[안전]</span> 감전 예방
                                 </td>
                             </tr>
-                            <tr class="hover:bg-indigo-50/50 transition-colors">
-                                <td class="px-4 py-4 text-center font-bold text-gray-700">11~12월</td>
-                                <td class="px-4 py-4 font-bold text-indigo-900">별과 우주</td>
-                                <td class="px-4 py-4 leading-relaxed">
-                                    <span class="inline-block bg-pink-100 text-pink-700 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[가치·태도]</span> 우주 팽창과 탐사 과정을 통한 가치 인식
-                                </td>
-                                <td class="px-4 py-4 leading-relaxed text-gray-700">
-                                    • 천문 소프트웨어(Stellarium) 활용 관측<br>
-                                    • 우주 팽창 모형 실험 및 우주 탐사 토의
+                            <tr class="hover:bg-slate-50 transition-colors border-t border-dashed border-slate-200">
+                                <td class="px-4 py-4">
+                                    <div class="badge-B text-xs px-2 py-1 rounded inline-block mb-1">과학B</div><br>
+                                    <span class="font-bold text-slate-800">동물과 에너지</span>
                                 </td>
                                 <td class="px-4 py-4 leading-relaxed">
-                                    <span class="font-bold text-indigo-700 bg-indigo-50 px-1 py-0.5 rounded">[수행 3]</span> 우주 탐사 제안서 (서논술B)<br>
-                                    <span class="font-bold text-gray-700 bg-gray-100 px-1 py-0.5 rounded">기말고사</span> 지필평가 (30%)
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[과정·기능]</span> 소화/순환/호흡/배설계 통합 모식도
                                 </td>
-                                <td class="px-4 py-4 text-xs text-gray-600 leading-relaxed">
-                                    <span class="font-bold text-yellow-600">[진로]</span> 천문학 진로 탐색
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 사람의 기관계 통합 작용 모식도 제작<br>
+                                    • AI 활용 모둠별 건강 설계 프로젝트
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-purple-700 bg-purple-50 px-2 py-1 rounded">[수행 2]</span> 기관계 모식도 논술 (서논술A)
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    -
+                                </td>
+                            </tr>
+
+                            <!-- November/December -->
+                            <tr class="hover:bg-slate-50 transition-colors border-t-2 border-slate-200">
+                                <td class="px-4 py-4 text-center font-bold text-slate-700" rowspan="2">11~12월</td>
+                                <td class="px-4 py-4">
+                                    <div class="badge-A text-xs px-2 py-1 rounded inline-block mb-1">과학A</div><br>
+                                    <span class="font-bold text-slate-800">별과 우주 (별)</span>
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[지식·이해]</span> 별의 표면 온도, 밝기, 시차 측정
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 천문 소프트웨어(Stellarium) 활용 별 관측<br>
+                                    • 기말고사 실시 (12.7 - 12.9)
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded">기말고사</span> 지필평가 (30%)
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    -
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 transition-colors border-t border-dashed border-slate-200">
+                                <td class="px-4 py-4">
+                                    <div class="badge-B text-xs px-2 py-1 rounded inline-block mb-1">과학B</div><br>
+                                    <span class="font-bold text-slate-800">별과 우주 (우주)</span>
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="inline-block bg-slate-200 text-slate-800 text-[11px] px-2 py-0.5 rounded-full font-bold mb-1">[가치·태도]</span> 우주 팽창과 우주 탐사의 필요성 제안
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed text-slate-700">
+                                    • 우주 팽창 모형 실험 (풍선)<br>
+                                    • 기말고사 실시 (12.7 - 12.9)
+                                </td>
+                                <td class="px-4 py-4 leading-relaxed">
+                                    <span class="font-bold text-purple-700 bg-purple-50 px-2 py-1 rounded">[수행 3]</span> 우주 탐사 제안 (서논술B)<br>
+                                    <span class="font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded">기말고사</span> 지필평가 (30%)
+                                </td>
+                                <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed">
+                                    <span class="font-bold text-yellow-600">[진로]</span> 천문학 연계
                                 </td>
                             </tr>
                         </tbody>
@@ -601,41 +782,41 @@
             <div class="section-card">
                 <div class="section-header">
                     <div class="p-2 bg-orange-100 text-orange-700 rounded-lg"><i data-lucide="clipboard-check"></i></div>
-                    <h2 class="text-xl font-bold text-gray-800">2학기 수행평가 세부 계획 및 루브릭 (총 40%)</h2>
+                    <h2 class="text-xl font-bold text-slate-800">2학기 수행평가 세부 계획 및 루브릭 (A/B 통합 총 40%)</h2>
                 </div>
                 <div class="p-8 space-y-12">
                     
                     <!-- Task 1 -->
                     <div>
-                        <h3 class="text-lg font-bold text-indigo-900 mb-4 flex items-center gap-2"><div class="w-2 h-6 bg-indigo-600 rounded-full"></div> [과제 1] 실험/실습 평가: "영양소 검출 실험" <span class="text-indigo-600 ml-2">(10%)</span></h3>
-                        <div class="table-wrapper border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><div class="badge-A text-xs px-2 py-1 rounded">과학A</div> [과제 1] 실험/실습 평가: "미지의 이온 찾기 앙금 생성 실험" <span class="text-purple-600 ml-2">(10%)</span></h3>
+                        <div class="table-wrapper border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                             <table class="w-full text-sm text-left min-w-[800px]">
-                                <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 text-center">
+                                <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 text-center">
                                     <tr>
-                                        <th scope="col" class="px-4 py-3 w-28 border-r border-gray-200">채점 요소</th>
+                                        <th scope="col" class="px-4 py-3 w-28 border-r border-slate-200">채점 요소</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">탁월 (A)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">우수 (B)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">보통 (C)</th>
-                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-gray-200">초보 (D/E)</th>
+                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-slate-200">초보 (D/E)</th>
                                         <th scope="col" class="px-2 py-3 w-16">배점</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">지식/결과</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">지시약 색깔 변화를 관찰하고, 미지 시료의 영양소 종류를 100% 논리적으로 추론함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">색깔 변화를 기록하고 영양소를 추론하였으나 결과 해석의 논리적 연결이 일부 미흡함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">색깔 변화는 기록하였으나, 지시약과 영양소의 매칭에 어려움을 보임. (기본점수 부여)</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">결과 도출에 어려움이 있으나, 보고서 양식의 빈칸을 채우기 위해 탐구에 성실히 참여함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">40</td>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">지식/결과</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">생성된 앙금의 색깔 변화를 관찰하고, 알짜 이온 반응식을 통해 미지 시료를 100% 추론함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">앙금 색깔 변화를 기록하고 추론하였으나, 이온 반응식 작성이나 논리적 연결이 일부 미흡함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">색깔 변화는 기록하였으나 이온 반응식을 세우고 미지 시료를 식별하는 데 어려움을 보임.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">결과 도출에 어려움이 있으나, 보고서 양식 빈칸을 채우며 실험에 기본적으로 참여함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">40</td>
                                     </tr>
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">과정/안전</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">스포이트 조작 시 교차 오염을 방지하며 정량을 사용하고 실험 후 폐액을 분리 처리함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">시약을 바르게 조작하며 실험에 참여하고 폐수 처리 및 기본 안전 수칙을 준수함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">기구 조작에 미숙함이 있으나 실험을 끝까지 수행하며, 교사 지시하에 폐수를 처리함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">조작에 소극적이며, 시약 혼입 방지 및 폐수 처리를 위해 교사의 구체적인 개입이 필요함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">60</td>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">과정/안전</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">스포이트 조작 시 교차 오염을 방지하며 정량을 사용하고 실험 후 폐액을 올바르게 분리 처리함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">시약을 바르게 조작하며 실험에 참여하고 폐수 처리 및 기본 안전 수칙을 준수함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">기구 조작에 미숙함이 있으나 실험을 끝까지 수행하며, 교사 지시하에 폐수를 처리함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">조작에 소극적이며, 시약 혼입 방지 및 폐수 처리를 위해 교사의 구체적인 개입이 필요함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">60</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -644,35 +825,35 @@
 
                     <!-- Task 2 -->
                     <div>
-                        <h3 class="text-lg font-bold text-blue-900 mb-4 flex items-center gap-2"><div class="w-2 h-6 bg-blue-600 rounded-full"></div> [과제 2] 서논술형/프로젝트 A: "주기율표와 이온 형성 탐구" <span class="text-blue-600 ml-2">(15%)</span></h3>
-                        <div class="table-wrapper border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><div class="badge-B text-xs px-2 py-1 rounded">과학B</div> [과제 2] 서논술형/프로젝트 A: "기관계 통합 모식도 및 AI 건강 설계" <span class="text-purple-600 ml-2">(15%)</span></h3>
+                        <div class="table-wrapper border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                             <table class="w-full text-sm text-left min-w-[800px]">
-                                <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 text-center">
+                                <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 text-center">
                                     <tr>
-                                        <th scope="col" class="px-4 py-3 w-28 border-r border-gray-200">채점 요소</th>
+                                        <th scope="col" class="px-4 py-3 w-28 border-r border-slate-200">채점 요소</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">탁월 (A)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">우수 (B)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">보통 (C)</th>
-                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-gray-200">초보 (D/E)</th>
+                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-slate-200">초보 (D/E)</th>
                                         <th scope="col" class="px-2 py-3 w-16">배점</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">지식/논술</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">주기율표의 규칙성을 명확히 이해하고 특정 원소가 이온이 되는 원리를 논리적으로 완벽히 서술함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">주기율표 규칙성을 반영해 서술하였으나 개념 간의 논리적 연결이나 이유 설명이 일부 부족함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">기본 개념은 포함되었으나 주기율표의 위치와 이온 전하량의 관계를 올바르게 짓지 못함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">단편적 지식만 나열하였으며, 과학적 문장 작성을 위해 교사의 조력이 필수적임.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">60</td>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">지식/논술</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">소화, 순환, 호흡, 배설계의 유기적 관계를 모식도로 완벽히 구현하고 세포 호흡 과정을 논리적으로 서술함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">기관계의 통합 작용을 모식도로 표현하였으나, 물질의 이동 경로 설명이 일부 부족함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">각 기관의 개별적인 기능은 서술하였으나, 기관 간의 유기적 상호작용 연결이 미흡함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">단편적인 장기 이름만 나열하였으며 통합 작용 이해를 위해 교사의 적극적 지도가 요망됨.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">60</td>
                                     </tr>
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">과정/탐구</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">에듀테크를 적극 활용하여 원자의 구조를 정확히 구현하고 출처와 데이터를 완벽히 검증함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">에듀테크 도구를 활용해 구현하였으며 데이터 탐색 및 출처 표기 규칙을 대체로 준수함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">모델링을 시도하였으나 단순 검색에 의존하여 출처 표기가 누락됨.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">디지털 탐구 도구 활용에 어려움을 겪고 모방이 필요함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">40</td>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">과정/윤리</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">AI 도구를 활용해 실생활 질환과 관련된 건강 관리 방안을 비판적으로 수집하고 출처를 명확히 표기함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">목적에 맞게 AI를 활용해 건강 설계 자료를 구성하고 기본적인 윤리 및 출처를 준수함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">단순 검색 결과에 의존하였으며, 데이터 오류 검증 부족 및 출처 표기에 일부 누락이 있음.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">디지털 탐색 도구 활용을 어려워하며 AI 결과를 검증 없이 무비판적으로 수용함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">40</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -681,35 +862,35 @@
 
                     <!-- Task 3 -->
                     <div>
-                        <h3 class="text-lg font-bold text-teal-900 mb-4 flex items-center gap-2"><div class="w-2 h-6 bg-teal-600 rounded-full"></div> [과제 3] 서논술형/프로젝트 B: "빅데이터 기반 우주 팽창 및 탐사 제안서" <span class="text-teal-600 ml-2">(15%)</span></h3>
-                        <div class="table-wrapper border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><div class="badge-B text-xs px-2 py-1 rounded">과학B</div> [과제 3] 서논술형/프로젝트 B: "빅데이터 기반 우주 팽창 및 탐사 제안서" <span class="text-purple-600 ml-2">(15%)</span></h3>
+                        <div class="table-wrapper border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                             <table class="w-full text-sm text-left min-w-[800px]">
-                                <thead class="text-xs text-gray-700 bg-gray-50 border-b border-gray-200 text-center">
+                                <thead class="text-xs text-slate-700 bg-slate-50 border-b border-slate-200 text-center">
                                     <tr>
-                                        <th scope="col" class="px-4 py-3 w-28 border-r border-gray-200">채점 요소</th>
+                                        <th scope="col" class="px-4 py-3 w-28 border-r border-slate-200">채점 요소</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">탁월 (A)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">우수 (B)</th>
                                         <th scope="col" class="px-4 py-3 w-1/4">보통 (C)</th>
-                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-gray-200">초보 (D/E)</th>
+                                        <th scope="col" class="px-4 py-3 w-1/4 border-r border-slate-200">초보 (D/E)</th>
                                         <th scope="col" class="px-2 py-3 w-16">배점</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">지식/논술</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">수집한 우주 팽창 데이터를 분석하여 우주의 과거/미래를 예측하고 탐사의 가치를 논리적으로 서술함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">우주 팽창 증거를 바탕으로 작성하였으나 데이터 해석이나 논리적 타당성이 일부 부족함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">기본 지식은 포함되었으나 탐사의 효용성이나 과학적 데이터 근거가 빈약함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">우주 탐사 목적을 감성적으로만 나열하여 조력이 필요함.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">60</td>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">지식/논술</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">수집한 우주 팽창 데이터를 분석하여 우주의 미래를 예측하고 우주 탐사의 당위성을 논리적으로 서술함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">우주 팽창 증거를 바탕으로 작성하였으나 데이터 해석이나 제안서의 논리적 타당성이 일부 부족함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">기본 천문학 지식은 포함되었으나 탐사의 효용성이나 과학적 데이터 근거가 빈약함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">우주 탐사 목적을 감성적으로만 나열하여 객관적 글쓰기를 위한 조력이 필요함.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">60</td>
                                     </tr>
-                                    <tr class="hover:bg-gray-50/50">
-                                        <td class="px-4 py-3 font-bold text-center border-r border-gray-200 bg-gray-50 text-gray-800">과정/데이터</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">시뮬레이터/포털에서 데이터를 추출하고 비판적으로 검토하여 정확하게 인용함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">지정된 프로그램을 활용하여 데이터를 수집하고 기본적인 출처 표기 규칙을 준수함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed">일반 포털 검색에 의존하여 객관적 데이터 활용 및 출처 명시가 부족함.</td>
-                                        <td class="px-4 py-3 text-gray-600 leading-relaxed border-r border-gray-200">데이터 검색을 어려워하며 윤리 의식 지도가 요망됨.</td>
-                                        <td class="px-2 py-3 text-center font-bold text-lg text-gray-700">40</td>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="px-4 py-3 font-bold text-center border-r border-slate-200 bg-slate-50 text-slate-800">과정/데이터</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">시뮬레이터 및 천문 포털에서 데이터를 직접 추출하고, 비판적으로 검토하여 정확하게 인용함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">지정된 프로그램을 활용하여 데이터를 수집하고 기본적인 출처 표기 규칙을 준수함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed">일반 포털 검색에만 의존하여 객관적인 천문 데이터 활용 및 출처 명시가 부족함.</td>
+                                        <td class="px-4 py-3 text-slate-600 leading-relaxed border-r border-slate-200">데이터 수집 활동 자체를 어려워하며 디지털 윤리 의식 지도가 필수적임.</td>
+                                        <td class="px-2 py-3 text-center font-bold text-lg text-slate-700">40</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -732,15 +913,24 @@
         tabs.forEach(id => {
             const element = document.getElementById(id);
             const btn = document.getElementById('btn-' + id);
+            const icon = btn.querySelector('svg');
             
             if (id === tabId) {
                 element.classList.remove('hidden');
                 element.classList.add('block');
                 btn.classList.add('active');
+                if(icon) {
+                    if(id === 'overview') icon.classList.add('text-slate-800');
+                    else if(id === 'sem1') icon.classList.add('text-blue-700');
+                    else icon.classList.add('text-emerald-700');
+                }
             } else {
                 element.classList.remove('block');
                 element.classList.add('hidden');
                 btn.classList.remove('active');
+                if(icon) {
+                    icon.classList.remove('text-slate-800', 'text-blue-700', 'text-emerald-700');
+                }
             }
         });
         
@@ -750,4 +940,3 @@
 </script>
 </body>
 </html>
-```
